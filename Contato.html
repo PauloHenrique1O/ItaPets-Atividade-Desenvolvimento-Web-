@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ItaPets Contato</title>
+</head>
+<body>
+    <main>
+        <a href="index.html"><h1>ItaPets</h1></a>
+        <h2>Contato</h2>
+        <form action="itapets12@gmail.com" method="post" enctype="text/plain">
+            <fieldset>
+                <legend> Envie seu comentário</legend>
+
+                <label for="fname"> Name:</label>
+                <input type="text" id="fname" name="fname" required pattern="[A-Za-zÀ-ÿ\s]{3,}">
+                
+                <br><br>
+
+                <label for="femail">E-mail:</label>
+                <input type="email" id="femail" name="femail" required size="75" >
+
+                <br><br>
+
+                <label for="ftel">Telefone:</label>
+                <input type="tel" id="ftel" name="ftel" required pattern="[0-9]{9,}">
+                
+                <br><br>
+
+                <textarea name="message" rows="10" cols="77" required placeholder="Deixe aqui seu comentário."></textarea>
+                
+                <br><br>
+
+                <input type="submit" value="Send">
+                <input type="reset" value="Reset">
+            </fieldset>
+        </form> 
+        <a href="index.html"><p>Voltar para Início</p></a>
+    </main>
+</body>
+</html>
