@@ -1,41 +1,137 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="stylesheet" type="text/css" href="css/style.css" >
     <title>ItaPets Contato</title>
-</head>
-<body>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" >
+  </head>
+  <body>
+    <header>
+      <h1><a href="index.html">ItaPets</a></h1>
+      <form role="search" aria-label="Busca no site">
+        <label for="txtbusca">Buscar: </label>
+        <input type="search" id="txtbusca" placeholder="Busca..." >
+        <button type="submit">Pesquisar</button>
+      </form>
+    </header>
+    <div class="navbar">
+      <nav aria-label="Menu principal">
+        <ul>
+          <li class="dropdown">
+            <a href="Cachorro.html" class="dog">Cachorro</a>
+            <ul class="dropdown-content">
+              <li>
+                <a href="Categoria_Brinquedo_Cachorro.html">Brinquedos</a>
+              </li>
+              <li><a href="Categoria_Racao_Cachorro.html">Ração</a></li>
+              <li>
+                <a href="Categoria_Acessorio_Cachorro.html">Acessórios</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="Gato.html" class="cat">Gato</a>
+            <ul class="dropdown-content">
+              <li><a href="Categoria_Brinquedo_Gato.html">Brinquedos</a></li>
+              <li><a href="Categoria_Racao_Gato.html">Ração</a></li>
+              <li><a href="Categoria_Acessorio_Gato.html">Acessórios</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="Passaro.html" class="bird">Pássaro</a>
+            <ul class="dropdown-content">
+              <li><a href="Categoria_Brinquedo_Passaro.html">Brinquedos</a></li>
+              <li><a href="Categoria_Racao_Passaro.html">Ração</a></li>
+              <li><a href="Categoria_Acessorio_Passaro.html">Acessórios</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <h2>Contato</h2>
     <main>
-        <a href="index.html"><h1>ItaPets</h1></a>
-        <h2>Contato</h2>
-        <form action="mailto:itapets12@gmail.com" method="post" enctype="text/plain">
-            <fieldset>
-                <legend> Envie seu comentário</legend>
+      <form
+        action="mailto:itapets12@gmail.com"
+        method="post"
+        enctype="text/plain"
+      >
+        <fieldset>
+          <legend>Envie seu comentário</legend>
 
-                <label for="fname"> Name:</label>
-                <input type="text" id="fname" name="fname" required pattern="[A-Za-zÀ-ÿ\s]{3,}">
-                
-                <br><br>
+          <!-- Nome -->
+          <label for="fname">Nome completo:</label><br />
+          <input
+            type="text"
+            id="fname"
+            name="fname"
+            required
+            pattern="[A-Za-zÀ-ÿ\s]{3,}"
+            title="Digite pelo menos 3 letras (sem números)"
+          >
+          <br ><br >
 
-                <label for="femail">E-mail:</label>
-                <input type="email" id="femail" name="femail" required size="75" >
+          <!-- Email -->
+          <label for="femail">E-mail:</label><br />
+          <input
+            type="email"
+            id="femail"
+            name="femail"
+            required
+            size="50"
+            placeholder="exemplo@dominio.com"
+          >
+          <br ><br >
 
-                <br><br>
+          <!-- Telefone -->
+          <label for="ftel">Telefone (DDD + número):</label><br />
+          <input
+            type="tel"
+            id="ftel"
+            name="ftel"
+            required
+            pattern="\d{11}"
+            placeholder="xx xxxxxxxxx"
+            title="Digite DDD + número, apenas números (11 dígitos)"
+          >
+          <br ><br >
 
-                <label for="ftel">Telefone:</label>
-                <input type="tel" id="ftel" name="ftel" required pattern="[0-9]{9,}">
-                
-                <br><br>
+          <!-- Tipo de assunto -->
+          <label for="assunto">Assunto:</label><br />
+          <select id="assunto" name="assunto" required>
+            <option value="">Selecione...</option>
+            <option value="banhoetosa">Banho e Tosa</option>
+            <option value="institucional">Institucional</option>
+            <option value="parceriasrelações">Parceria/Reclamações</option>
+            <option value="lojavirtual">Loja Virtual</option>
+          </select>
+          <br ><br >
 
-                <textarea name="message" rows="10" cols="77" required placeholder="Deixe aqui seu comentário."></textarea>
-                
-                <br><br>
+          <!-- Motivo -->
+          <label for="motivo">Motivo:</label><br />
+          <select id="motivo" name="motivo" required>
+            <option value="">Selecione...</option>
+            <option value="informacao">Informação</option>
+            <option value="opiniaodocliente">Opinião do Cliente</option>
+            <option value="reclamacao">Reclamação</option>
+            <option value="solicitacao">Solicitação</option>
+          </select>
+          <br ><br >
 
-                <input type="submit" value="Send">
-                <input type="reset" value="Reset">
-            </fieldset>
-        </form> 
-        <a href="index.html"><p>Voltar para Início</p></a>
+          <!-- Descrição/Mensagem -->
+          <textarea
+            name="message"
+            rows="10"
+            cols="77"
+            required
+            placeholder="Deixe aqui seu comentário."
+          ></textarea>
+
+          <input type="reset" value="Reset" >
+          <input type="submit" value="Send" >
+        </fieldset>
+      </form>
     </main>
-</body>
+  </body>
 </html>

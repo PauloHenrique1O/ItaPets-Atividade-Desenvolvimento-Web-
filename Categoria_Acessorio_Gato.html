@@ -1,60 +1,100 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="stylesheet" type="text/css" href="css/style.css" >
     <title>ItaPets Gatos Acessórios</title>
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-</head>
-<body>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" >
+  </head>
+  <body>
     <header>
-        <a href="index.html"><h1>ItaPets</h1></a>
-        <form role="search" aria-label="Busca no site">  
-            <label for="txtbusca">Buscar: </label>
-            <input type="search" id="txtbusca" placeholder="Busca...">
-            <button type="submit"> Pesquisar</button>
-        </form>
+      <h1><a href="index.html">ItaPets</a></h1>
+      <form role="search" aria-label="Busca no site">
+        <label for="txtbusca">Buscar: </label>
+        <input type="search" id="txtbusca" placeholder="Busca..." >
+        <button type="submit">Pesquisar</button>
+      </form>
     </header>
-    <nav>   
-        <a href="Cachorro.html"> Cachorro</a>
-        <a href="Gato.html"> Gato</a>
-        <a href="Passaro.html"> Pássaro</a>
+    <nav aria-label="Menu de Navegação">
+      <ul>
+        <li class="dropdown">
+          <a href="Cachorro.html" class="dog">Cachorro</a>
+          <ul class="dropdown-content">
+            <li>
+              <a href="Categoria_Brinquedo_Cachorro.html">Brinquedos</a>
+            </li>
+            <li><a href="Categoria_Racao_Cachorro.html">Ração</a></li>
+            <li>
+              <a href="Categoria_Acessorio_Cachorro.html">Acessórios</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="Gato.html" class="cat">Gato</a>
+          <ul class="dropdown-content">
+            <li><a href="Categoria_Brinquedo_Gato.html">Brinquedos</a></li>
+            <li><a href="Categoria_Racao_Gato.html">Ração</a></li>
+            <li><a href="Categoria_Acessorio_Gato.html">Acessórios</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="Passaro.html" class="bird">Pássaro</a>
+          <ul class="dropdown-content">
+            <li><a href="Categoria_Brinquedo_Passaro.html">Brinquedos</a></li>
+            <li><a href="Categoria_Racao_Passaro.html">Ração</a></li>
+            <li><a href="Categoria_Acessorio_Passaro.html">Acessórios</a></li>
+          </ul>
+        </li>
+      </ul>
     </nav>
-    <h2> Gatos</h2>
-    <h3> Acessórios</h3>
-    <section>
-       <article title="Caixa de Transporte DuraPets Falcon Black Amarela">
-                <a href="Caixa_de_transporte_durapets_falcon_black_amarela.html">
-                    <figure>
-                        <img src="img/Caixa_de_transporte_durapets_falcon_black_amarela.webp" alt="Caixa de Transporte DuraPets Falcon Black Amarela" width="200">
-                        <figcaption>
-                            <h3>Caixa de Transporte DuraPets Falcon</h3>
-                            <p>Caixa de Transporte DuraPets Falcon Black Amarela</p>
-                            <p><strong>Preço</strong> R$ 32,99</p>
-                        </figcaption>
-                    </figure>
-                </a>
+    <h2>Gatos > Acessório</h2>
+    <main>
+      <aside>
+        <h4><strong>Categorias</strong></h4>
+        <ul>
+          <li><a href="Categoria_Racao_Gato.html">Ração</a></li>
+          <li><a href="Categoria_Brinquedo_Gato.html">Brinquedos</a></li>
+          <li><a href="Categoria_Acessorio_Gato.html">Acessórios</a></li>
+        </ul>
+      </aside>
+      <div class="FlexContainer">
+        <article title="Caixa de Transporte DuraPets Falcon Black Amarela">
+          <a href="Caixa_de_transporte_durapets_falcon_black_amarela.html">
+            <figure>
+              <img
+                src="img/Caixa_de_transporte_durapets_falcon_black_amarela_width_220.webp"
+                alt="Caixa de Transporte DuraPets Falcon Black Amarela"
+              >
+              <figcaption>
+                <h3>Caixa de Transporte DuraPets Falcon</h3>
+                <p>Caixa de Transporte DuraPets Falcon Black Amarela</p>
+                <p><strong>Preço</strong> R$ 32,99</p>
+              </figcaption>
+            </figure>
+          </a>
         </article>
 
         <article title="Moletom Cansei de Ser Gato Cinza e Rosa">
-                <a href="Moletom_cansei_de_ser_gato_cinza_e_rosa.html">
-                    <figure>
-                        <img src="img/Moletom_cansei_de_ser_gato_cinza_e_rosa.webp" alt="Moletom Cansei de Ser Gato Cinza e Rosa" width="200">
-                        <figcaption>
-                            <h3>Moletom Gato Cinza e Rosa</h3>
-                            <p>Moletom Cansei de Ser Gato Cinza e Rosa</p>
-                            <p><strong>Preço</strong> R$ 81,99</p>
-                        </figcaption>
-                    </figure>
-                </a>
+          <a href="Moletom_cansei_de_ser_gato_cinza_e_rosa.html">
+            <figure>
+              <img
+                src="img/Moletom_cansei_de_ser_gato_cinza_e_rosa_width_220.webp"
+                alt="Moletom Cansei de Ser Gato Cinza e Rosa"
+              >
+              <figcaption>
+                <h3>Moletom Gato Cinza e Rosa</h3>
+                <p>Moletom Cansei de Ser Gato Cinza e Rosa</p>
+                <p><strong>Preço</strong> R$ 81,99</p>
+              </figcaption>
+            </figure>
+          </a>
         </article>
-    </section>
-    <aside>
-        <h4><strong>Categorias</strong></h4>
-        <ul>
-            <li><a href="Categoria_Racao_Gato.html">Ração</a></li>
-            <li><a href="Categoria_Brinquedo_Gato.html">Brinquedos</a></li>
-            <li><a href="Categoria_Acessorio_Gato.html">Acessórios</a></li>
-    </ul>
-    </aside>
-</body>
+      </div>
+    </main>
+    <footer>
+      <h3>Fale Conosco</h3>
+      <a href="index.html">Início</a> · <a href="contato.html">Contato</a>
+    </footer>
+  </body>
 </html>

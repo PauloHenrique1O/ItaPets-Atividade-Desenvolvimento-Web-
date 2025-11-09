@@ -1,0 +1,630 @@
+/* FONTES E RESET GLOBAL */
+@font-face {
+  font-family: "Notable";
+  src: url("/font/Notable-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* HEADER */
+
+header {
+  display: flex;
+  justify-content: space-between; /* separa o título e o formulário */
+  align-items: center;
+  background-color: #4694ad;
+  color: rgb(255, 255, 255);
+  padding: 15px 40px;
+  flex-wrap: wrap; /* quebra linha em telas pequenas */
+}
+
+header h1 {
+  font-family: "Notable", sans-serif;
+  font-size: 3rem;
+  margin: 0;
+}
+
+/* Formulário de busca */
+header form {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* distância entre 'Buscar:', a barra de pesquisa e o botão. */
+}
+
+header label {
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+header input[type="search"] {
+  width: 700px;
+  height: auto;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1rem;
+}
+
+header button {
+  background-color: #fff;
+  color: #3179b1;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease; /* acontece em todas as propriedades e ease define a aceleração da transição*/
+}
+
+header button:hover {
+  background-color: #457aa0;
+  color: white;
+}
+
+h1 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Responsividade HEADER */
+@media (max-width: 900px) {
+  header {
+    flex-direction: column; /* vai empilha elementos */
+    align-items: center;
+  }
+
+  header form {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  header input[type="search"] {
+    flex: 100%;
+  }
+}
+
+/* NAV BAR */
+
+nav {
+  background-color: #ffffff;
+  padding: 15px 40px;
+  box-shadow: 0 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 5px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+nav li {
+  position: relative;
+}
+
+nav a {
+  color: #4694ad;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  display: block;
+}
+
+nav a:hover {
+  background-color: #457aa0;
+  color: white;
+}
+
+
+/* Dropdown na NavBar */
+.dropdown{
+  position: relative;
+}
+
+nav ul ul {
+  display: none;/* esconde o submenu que fica na navbar */
+  flex: none;
+}
+
+.dropdown-content {
+  position: absolute;
+  left: 0; /*o quanto para a esquerda o submenu vai*/
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  z-index: 1; /*o nivel que o submenu tem para ficar afrente de outro elemento- aqui deixei com "nvl" 1*/
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+.dropdown-content li a {
+  color: #333;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content li a:hover {
+  background-color: #457aa0;
+}
+
+.dropdown:hover > a.dog {  /*Usa-se o '>' pra pegar o filho direto do dropdown, ou seja, o link(.dog) que é filho direto de dropdown.*/
+                           /*Se n usar, a aplicação do estilo seria a qualquer link .dog  dentro do submenu (por exemplo dentro de .dropdown-content).*/
+  background-image: url("/img/dog_icon_navbar.webp");
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: 30px;
+  padding-left: 30px;
+  color: white; /* opcional: muda cor quando ativo */
+  background-color: #457aa0; /* opcional: mantém cor do hover */
+}
+
+.dropdown:hover > a.cat {
+  background-image: url("/img/cat_icon_navbar.webp");
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: 30px;
+  padding-left: 30px;
+  color: white;
+  background-color: #457aa0;
+}
+
+.dropdown:hover > a.bird {
+  background-image: url("/img/bird_icon_navbar.webp");
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: 30px;
+  padding-left: 30px;
+  color: white;
+  background-color: #457aa0;
+}
+
+
+/* Mostra o menu ao passar o mouse */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+/* Responsividade NAV */
+@media (max-width: 900px) {
+  .navbar ul {
+    flex-direction: column; /* empilha os links */
+    gap: 10px;
+  }
+
+  .navbar a {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* PARTE PRINCIPAL */
+
+section {
+  padding: 2rem 2rem;
+  background-color: #ffffff;
+}
+
+/* Parte do agrupamento de produtos */
+.FlexContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  background-color: #ffffff;
+}
+
+/* Estilo para cada item/produto */
+.FlexContainer article {
+  position: relative;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 250px;
+  overflow: hidden;
+}
+
+.FlexContainer article:hover {
+  transform: translateY(-5px);  /* vou subir o produto(mover) 5px, dar uma ideia de selecionado*/
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.FlexContainer figure {
+  margin: 0;
+  text-align: center;
+  padding: 1rem;
+}
+
+.FlexContainer img {
+  width: 220px;
+  height: auto;
+  object-fit: contain;
+}
+
+.FlexContainer figcaption {
+  padding: 0 1rem 1rem;
+  text-align: left;
+}
+
+.FlexContainer h3 {
+  font-size: 1rem;
+  color: #222;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.FlexContainer p {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.FlexContainer h4 {
+  color: #000;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.FlexContainer a {
+  text-decoration: none; 
+  display: block;        
+}
+
+.FlexContainer article::after { /* vou inserir o elemento + / :: after é um pseudo elemento(adicionar contéudo extra)*/
+  content: "+";
+  position: absolute; /*usando o relative no article, esse + fica preso no produto*/
+  bottom: 15px;
+  right: 15px;
+  background-color: #111;
+  color: white;
+  font-size: 1.2rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.FlexContainer article:hover::after {
+  background-color: #3e8ca5;
+}
+
+/* Responsividade dos produtos */
+@media (max-width: 768px) {
+  .FlexContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .FlexContainer article {
+    width: auto; /* vai manter o tamanho dos produtos*/
+  }
+
+}
+
+/* Produto selecionado principal */
+.produto-detalhe {
+  display: flex;
+  flex-direction: column; /* imagem + infos ficam em uma linha, descrição abaixo */
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 4rem;
+  background-color: #fff;
+}
+
+/* figura com imagem e conteúdo lado a lado */
+.produto-detalhe figure {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+  margin: 0;
+}
+
+/* imagem do produto */
+.produto-detalhe img {
+  width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* informações à direita da imagem */
+figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 700px;
+}
+
+/* textos principais */
+figcaption h3 {
+  font-size: 1.8rem;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+figcaption p{
+  font-size: 1rem;
+  color: #444;
+  text-decoration: none;
+  margin: 0;
+}
+
+figcaption a:hover {
+  text-decoration: underline;
+}
+
+figcaption .preco {
+  font-size: 1.5rem;
+  color: #3179b1;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+/* botões */
+figcaption button {
+  background-color: #4694ad;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+figcaption button:hover {
+  background-color: #457aa0;
+}
+
+/* descrição abaixo de tudo */
+.produto-detalhe dl {
+  background-color: #f8f8f8;
+  border-top: 1px solid #ddd;
+  padding: 1.5rem;
+  color: #333;
+  width: 100%;
+}
+
+.produto-detalhe dl dt {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.produto-detalhe dl dd {
+  margin: 0 0 0.5rem 1.25rem;
+  line-height: 1.6;
+}
+
+
+@media (max-width: 768px) {
+
+  /* A imagem e o conteudo ficam todos na vertical */
+  .produto-detalhe figure {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .produto-detalhe img {
+    width: 100%;
+  }
+
+  .produto-detalhe figcaption {
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Melhorar o espaçamento */
+  .produto-detalhe .descricao {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+}
+
+/* Parte das categorias */
+main {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem 4rem;
+  background-color: #fff;
+  align-items: flex-start;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 0.5rem;
+  margin-left: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Parte do aside presente em categorias */
+aside {
+  width: 220px;
+  border-right: 1px solid #ddd;
+  padding-right: 1.5rem;
+}
+
+aside h4 {
+  font-size: 1.2rem;
+  color: #111;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #4694ad;
+  padding-bottom: 0.5rem;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+aside li {
+  margin: 0.75rem 0;
+}
+
+aside a {
+  color: #3179b1;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+aside a:hover {
+  color: #457aa0;
+  text-decoration: underline;
+}  
+
+@media (max-width: 768px) {
+
+  main{
+    flex-direction: column;
+  }
+
+  main aside{
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Formulario para contato */
+form {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+fieldset {
+  border: 2px solid #3179b1;
+  border-radius: 10px;
+  padding: 2rem;
+  background-color: #f7fafc;
+}
+
+legend {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #3179b1;
+  padding: 0 0.5rem;
+}
+
+label {
+  display: flex;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  margin-bottom: 0.3rem;
+}
+
+
+input[type="text"],   /* Usando os seletores de atributo*/
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+}
+
+input[type="tel"]{
+  width: 40%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+  width: 40%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Botão de enviar */
+input[type="submit"] {
+  background-color: #3179b1;
+}
+
+input[type="submit"]:hover {
+  background-color: #245f8e;
+  transform: scale(1.03);
+}
+
+/* Botão de reset */
+input[type="reset"] {
+  background-color: #bbb;
+  margin-right: 13rem;
+}
+
+input[type="reset"]:hover {
+  background-color: #999;
+  transform: scale(1.03);
+}
+
+
+@media (max-width: 1200px) { /* Tentei ajustar para que os botões ficassem de maneira OK*/
+  input[type="submit"],
+  input[type="reset"] {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+

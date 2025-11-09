@@ -1,44 +1,85 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>ItaPets Serragem Prensada Power Pets para Roedores e Pássaros 800 g</title>
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="stylesheet" type="text/css" href="css/style.css" >
+    <title>
+      ItaPets Serragem Prensada Power Pets para Roedores e Pássaros 800 g
+    </title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" >
+  </head>
+  <body>
     <header>
-        <a href="index.html"><h1>ItaPets</h1></a>
-        <form role="search" aria-label="Busca no site">  
-            <label for="txtbusca">Buscar: </label>
-            <input type="search" id="txtbusca" placeholder="Busca...">
-            <button type="submit"> Pesquisar</button>
-        </form>
+      <h1><a href="index.html">ItaPets</a></h1>
+      <form role="search" aria-label="Busca no site">
+        <label for="txtbusca">Buscar: </label>
+        <input type="search" id="txtbusca" placeholder="Busca..." >
+        <button type="submit">Pesquisar</button>
+      </form>
     </header>
-    <nav>   
-        <a href="Cachorro.html"> Cachorro</a>
-        <a href="Gato.html"> Gato</a>
-        <a href="Passaro.html"> Pássaro</a>
+    <nav aria-label="Menu de Navegação">
+      <ul>
+        <li class="dropdown">
+          <a href="Cachorro.html" class="dog">Cachorro</a>
+          <ul class="dropdown-content">
+            <li>
+              <a href="Categoria_Brinquedo_Cachorro.html">Brinquedos</a>
+            </li>
+            <li><a href="Categoria_Racao_Cachorro.html">Ração</a></li>
+            <li>
+              <a href="Categoria_Acessorio_Cachorro.html">Acessórios</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="Gato.html" class="cat">Gato</a>
+          <ul class="dropdown-content">
+            <li><a href="Categoria_Brinquedo_Gato.html">Brinquedos</a></li>
+            <li><a href="Categoria_Racao_Gato.html">Ração</a></li>
+            <li><a href="Categoria_Acessorio_Gato.html">Acessórios</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="Passaro.html" class="bird">Pássaro</a>
+          <ul class="dropdown-content">
+            <li><a href="Categoria_Brinquedo_Passaro.html">Brinquedos</a></li>
+            <li><a href="Categoria_Racao_Passaro.html">Ração</a></li>
+            <li><a href="Categoria_Acessorio_Passaro.html">Acessórios</a></li>
+          </ul>
+        </li>
+      </ul>
     </nav>
 
     <main>
+      <article class="produto-detalhe">
         <figure>
-            <img src="img/Serragem_prensada_power_pets_para_roedores_e_passaros_800g.webp" alt="Serragem Prensada Power Pets para Roedores e Pássaros 800 g" width="400">
-            <figcaption>
-                <h3>Serragem Prensada Power Pets para Roedores e Pássaros</h3>
-                <p>Serragem Prensada Power Pets para Roedores e Pássaros 800 g</p>
-                <a href="#D8"> Ver descrição completa</a>
-                <p><strong>Preço:</strong> R$ 8,99</p>
-            </figcaption>
+          <img
+            src="img/Serragem_prensada_power_pets_para_roedores_e_passaros_800g_width_500.webp"
+            alt="Serragem Prensada Power Pets para Roedores e Pássaros 800 g"
+          >
+          <figcaption>
+            <h3>Serragem Prensada Power Pets para Roedores e Pássaros</h3>
+            <p>Serragem Prensada Power Pets para Roedores e Pássaros 800 g</p>
+            <a href="#D8"> Ver descrição completa</a>
+            <p class="preco"><strong>Preço:</strong> R$ 8,99</p>
+            <button>Comprar agora</button>
+            <button>Adicionar ao carrinho</button>
+          </figcaption>
         </figure>
-        <strong>Descrição:</strong>
-        <ul id="D8">
-            <li>Indicado para pássaros;</li> 
-            <li>Deixa o ambiente muita mais higiênico; </li>
-            <li>100% natural e ecológico,</li>
-            <li>Disponível em embalagem com 800g.</li>
-        </ul>
 
-            
+        <dl id="D8">
+          <dt><strong>Descrição do Produto:</strong></dt>
+          <dd>Indicado para pássaros;</dd>
+          <dd>Deixa o ambiente muita mais higiênico;</dd>
+          <dd>100% natural e ecológico,</dd>
+          <dd>Disponível em embalagem com 800g.</dd>
+        </dl>
+      </article>
     </main>
-</body>
+    <footer>
+      <h3>Fale Conosco</h3>
+      <a href="index.html">Início</a> · <a href="contato.html">Contato</a>
+    </footer>
+  </body>
 </html>
