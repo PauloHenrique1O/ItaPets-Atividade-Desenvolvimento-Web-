@@ -54,65 +54,67 @@
   <main class="contato">
     <form action="mailto:itapets12@gmail.com" method="post" enctype="text/plain">
       <fieldset>
-  <legend>Envie seu comentário</legend>
+        <legend>Envie seu comentário</legend>
 
-  <div class="row">
-    <div class="col-6 col-md-12">
-      <label for="fname">Nome completo:</label>
-      <input type="text" id="fname" name="fname" required pattern="[A-Za-zÀ-ÿ\s]{3,}" title="Digite pelo menos 3 letras (sem números)">
-    </div>
+        <div class="row">
+          <div class="col-6 col-md-12">
+            <label for="fname">Nome completo:</label>
+            <input type="text" id="fname" name="fname" required pattern="[A-Za-zÀ-ÿ\s]{3,}"
+              title="Digite pelo menos 3 letras (sem números)">
+          </div>
 
-    <div class="col-6 col-md-12">
-      <label for="femail">E-mail:</label>
-      <input type="email" id="femail" name="femail" required placeholder="exemplo@dominio.com">
-    </div>
-  </div>
+          <div class="col-6 col-md-12">
+            <label for="femail">E-mail:</label>
+            <input type="email" id="femail" name="femail" required placeholder="exemplo@dominio.com">
+          </div>
+        </div>
 
-  <div class="row">
-    <div class="col-4 col-md-12">
-      <label for="ftel">Telefone (DDD + número):</label>
-      <input type="tel" id="ftel" name="ftel" required pattern="\d{11}" placeholder="xx xxxxxxxxx" title="Digite DDD + número, apenas números (11 dígitos)">
-    </div>
+        <div class="row">
+          <div class="col-4 col-md-12">
+            <label for="ftel">Telefone (DDD + número):</label>
+            <input type="tel" id="ftel" name="ftel" required pattern="\d{11}" placeholder="xx xxxxxxxxx"
+              title="Digite DDD + número, apenas números (11 dígitos)">
+          </div>
 
-    <div class="col-4 col-md-6">
-      <label for="assunto">Assunto:</label>
-      <select id="assunto" name="assunto" required>
-        <option value="">Selecione...</option>
-        <option value="banhoetosa">Banho e Tosa</option>
-        <option value="institucional">Institucional</option>
-        <option value="parceriasrelações">Parceria/Reclamações</option>
-        <option value="lojavirtual">Loja Virtual</option>
-      </select>
-    </div>
+          <div class="col-4 col-md-6">
+            <label for="assunto">Assunto:</label>
+            <select id="assunto" name="assunto" required>
+              <option value="">Selecione...</option>
+              <option value="banhoetosa">Banho e Tosa</option>
+              <option value="institucional">Institucional</option>
+              <option value="parceriasrelações">Parceria/Reclamações</option>
+              <option value="lojavirtual">Loja Virtual</option>
+            </select>
+          </div>
 
-    <div class="col-4 col-md-6">
-      <label for="motivo">Motivo:</label>
-      <select id="motivo" name="motivo" required>
-        <option value="">Selecione...</option>
-        <option value="informacao">Informação</option>
-        <option value="opiniaodocliente">Opinião do Cliente</option>
-        <option value="reclamacao">Reclamação</option>
-        <option value="solicitacao">Solicitação</option>
-      </select>
-    </div>
-  </div>
+          <div class="col-4 col-md-6">
+            <label for="motivo">Motivo:</label>
+            <select id="motivo" name="motivo" required>
+              <option value="">Selecione...</option>
+              <option value="informacao">Informação</option>
+              <option value="opiniaodocliente">Opinião do Cliente</option>
+              <option value="reclamacao">Reclamação</option>
+              <option value="solicitacao">Solicitação</option>
+            </select>
+          </div>
+        </div>
 
-  <div class="row">
-    <div class="col-12">
-      <label for="message">Mensagem:</label>
-      <textarea id="message" name="message" rows="8" required placeholder="Deixe aqui seu comentário."></textarea>
-    </div>
-  </div>
+        <div class="row">
+          <div class="col-12">
+            <label for="message">Mensagem:</label>
+            <textarea id="message" name="message" rows="8" required placeholder="Deixe aqui seu comentário."></textarea>
+          </div>
+        </div>
 
-  <div class="row botoes">
-    <div class="col-6 col-md-12">
-      <input type="reset" value="Reset">
-    </div>
-    <div class="col-6 col-md-12">
-      <input type="submit" value="Send">
-    </div>
-  </div>
-</fieldset>
+        <div class="row botoes">
+          <div class="col-6 col-md-12">
+            <input type="reset" value="Reset">
+          </div>
+          <div class="col-6 col-md-12">
+            <input type="submit" value="Send">
+          </div>
+        </div>
+      </fieldset>
     </form>
   </main>
 </body>

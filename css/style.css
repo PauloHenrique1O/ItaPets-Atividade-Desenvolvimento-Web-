@@ -12,12 +12,12 @@
   box-sizing: border-box;
 }
 
-
 /* HEADER */
 
 header {
   display: flex;
-  justify-content: space-between; /* separa o título e o formulário */
+  justify-content: space-between;
+  /* separa o título e o formulário */
   align-items: center;
   background-color: #4694ad;
   color: rgb(255, 255, 255);
@@ -31,7 +31,7 @@ header h1 {
   margin: 0;
 }
 
-/* Formulário de busca */
+/* formulário de busca */
 header form {
   display: flex;
   align-items: center;
@@ -61,7 +61,8 @@ header button {
   padding: 8px 16px;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease; /* acontece em todas as propriedades e ease define a aceleração da transição*/
+  transition: all 0.3s ease;
+  /* acontece em todas as propriedades e ease define a aceleração da transição*/
 }
 
 header button:hover {
@@ -69,7 +70,7 @@ header button:hover {
   color: white;
 }
 
-h1 a {
+h1 a { /* estilo para o nome ItaPets*/
   text-decoration: none;
   color: inherit;
 }
@@ -77,7 +78,8 @@ h1 a {
 /* Responsividade HEADER */
 @media (max-width: 900px) {
   header {
-    flex-direction: column; /* vai empilha elementos */
+    flex-direction: column;
+    /* vai empilha elementos */
     align-items: center;
   }
 
@@ -133,23 +135,26 @@ nav a:hover {
 
 
 /* Dropdown na NavBar */
-.dropdown{
+.dropdown {
   position: relative;
 }
 
 nav ul ul {
-  display: none;/* esconde o submenu que fica na navbar */
+  display: none;
+  /* esconde o submenu que fica na navbar */
   flex: none;
 }
 
 .dropdown-content {
   position: absolute;
-  left: 0; /*o quanto para a esquerda o submenu vai*/
+  left: 0;
+  /*o quanto para a esquerda o submenu vai*/
   background-color: white;
   min-width: 160px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  z-index: 1; /*o nivel que o submenu tem para ficar afrente de outro elemento- aqui deixei com "nvl" 1*/
+  z-index: 1;
+  /*o nivel que o submenu tem para ficar afrente de outro elemento- aqui deixei com "nvl" 1*/
 }
 
 .dropdown-content a {
@@ -158,7 +163,6 @@ nav ul ul {
   text-decoration: none;
   display: block;
 }
-
 
 .dropdown-content li a {
   color: #333;
@@ -171,18 +175,19 @@ nav ul ul {
   background-color: #457aa0;
 }
 
-.dropdown:hover > a.dog {  /*Usa-se o '>' pra pegar o filho direto do dropdown, ou seja, o link(.dog) que é filho direto de dropdown.*/
-                           /*Se n usar, a aplicação do estilo seria a qualquer link .dog  dentro do submenu (por exemplo dentro de .dropdown-content).*/
+.dropdown:hover>a.dog {
+  /*Usa-se o '>' pra pegar o filho direto do dropdown, ou seja, o link(.dog) que é filho direto de dropdown.*/
+  /*Se n usar, a aplicação do estilo seria a qualquer link .dog  dentro do submenu (por exemplo dentro de .dropdown-content).*/
   background-image: url("/img/dog_icon_navbar.webp");
   background-repeat: no-repeat;
   background-position: center left;
   background-size: 30px;
   padding-left: 30px;
-  color: white; /* opcional: muda cor quando ativo */
-  background-color: #457aa0; /* opcional: mantém cor do hover */
+  color: white;
+  background-color: #457aa0;
 }
 
-.dropdown:hover > a.cat {
+.dropdown:hover>a.cat {
   background-image: url("/img/cat_icon_navbar.webp");
   background-repeat: no-repeat;
   background-position: center left;
@@ -192,7 +197,7 @@ nav ul ul {
   background-color: #457aa0;
 }
 
-.dropdown:hover > a.bird {
+.dropdown:hover>a.bird {
   background-image: url("/img/bird_icon_navbar.webp");
   background-repeat: no-repeat;
   background-position: center left;
@@ -203,34 +208,53 @@ nav ul ul {
 }
 
 
-/* Mostra o menu ao passar o mouse */
+/* mostra o menu ao passar o mouse */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
 
 /* Responsividade NAV */
-@media (max-width: 900px) {
-  .navbar ul {
-    flex-direction: column; /* empilha os links */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    /* empilha os links */
     gap: 10px;
   }
 
-  .navbar a {
+  nav a {
     display: block;
     width: 100%;
     text-align: center;
   }
 }
 
-/* PARTE PRINCIPAL */
+/* MAIN */
 
-section {
-  padding: 2rem 2rem;
-  background-color: #ffffff;
+main{
+  display: flex;
+  gap: 2rem;
+  padding: 2rem 4rem;
+  background-color: #fff;
+  align-items: flex-start;
 }
 
-/* Parte do agrupamento de produtos */
+main.index {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem 2rem;
+  background-color: #fff;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+section {
+  padding: 0.5rem 2rem;
+  background-color: #ffffff;
+
+}
+
+/* parte do agrupamento de produtos */
 .FlexContainer {
   display: flex;
   flex-wrap: wrap;
@@ -239,7 +263,7 @@ section {
   background-color: #ffffff;
 }
 
-/* Estilo para cada item/produto */
+/* estilo para cada item/produto */
 .FlexContainer article {
   position: relative;
   background-color: white;
@@ -251,13 +275,16 @@ section {
 }
 
 .FlexContainer article:hover {
-  transform: translateY(-5px);  /* vou subir o produto(mover) 5px, dar uma ideia de selecionado*/
+  transform: translateY(-5px);
+  /* vou subir o produto(mover) 5px, dar uma ideia de selecionado*/
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .FlexContainer figure {
   margin: 0;
   text-align: center;
+  width: 100%;
+  height: auto;
   padding: 1rem;
 }
 
@@ -267,7 +294,7 @@ section {
   object-fit: contain;
 }
 
-.FlexContainer figcaption {
+.FlexContainer .info {
   padding: 0 1rem 1rem;
   text-align: left;
 }
@@ -292,13 +319,15 @@ section {
 }
 
 .FlexContainer a {
-  text-decoration: none; 
-  display: block;        
+  text-decoration: none;
+  display: block;
 }
 
-.FlexContainer article::after { /* vou inserir o elemento + / :: after é um pseudo elemento(adicionar contéudo extra)*/
+.FlexContainer article::after {
+  /* vou inserir o elemento + / :: after é um pseudo elemento(adicionar contéudo extra)*/
   content: "+";
-  position: absolute; /*usando o relative no article, esse + fica preso no produto*/
+  position: absolute;
+  /*usando o relative no article, esse + fica preso no produto*/
   bottom: 15px;
   right: 15px;
   background-color: #111;
@@ -320,24 +349,29 @@ section {
 /* Responsividade dos produtos */
 @media (max-width: 768px) {
   .FlexContainer {
-    flex-direction: column;
     align-items: center;
   }
 
   .FlexContainer article {
-    width: auto; /* vai manter o tamanho dos produtos*/
+    width: 100%;
+    height: auto;
+    /* vai manter o tamanho dos produtos*/
   }
 
 }
 
-/* produto selecionado principal */
+/* Produto selecionado */
 .produto-detalhe {
   display: flex;
-  flex-direction: column; /* imagem + infos ficam em uma linha, descrição abaixo */
-  align-items: center;
-  gap: 2rem;
-  padding: 2rem 4rem;
-  background-color: #fff;
+  flex-wrap: wrap;
+  /* Permite quebrar em telas menores */
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
 }
 
 /* figura com imagem e conteúdo lado a lado */
@@ -348,50 +382,42 @@ section {
   margin: 0;
 }
 
-/* imagem do produto */
 .produto-detalhe img {
   width: 500px;
+  height: auto;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.produto-detalhe-conteudo {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 3rem;
-  width: 100%;
-}
-
 /* informações à direita da imagem */
-.informacao-produto {
+.produto-detalhe .info {
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.75rem;
   max-width: 700px;
-  text-align: center;
 }
-vai ficar uma div dentro de outra
 
 /* textos principais */
-.informacao-produto  h3 {
+.produto-detalhe .info h3 {
   font-size: 1.8rem;
   color: #222;
   margin-bottom: 0.5rem;
 }
 
-.informacao-produto p{
+.produto-detalhe .info p {
   font-size: 1rem;
   color: #444;
   text-decoration: none;
   margin: 0;
 }
 
-.informacao-produto a:hover {
+.produto-detalhe .info a:hover {
   text-decoration: underline;
 }
 
-.informacao-produto .preco {
+.produto-detalhe .info .preco {
   font-size: 1.5rem;
   color: #3179b1;
   font-weight: bold;
@@ -399,7 +425,7 @@ vai ficar uma div dentro de outra
 }
 
 /* botões */
-.informacao-produto button {
+.produto-detalhe .info  button {
   background-color: #4694ad;
   color: white;
   border: none;
@@ -411,14 +437,13 @@ vai ficar uma div dentro de outra
   width: fit-content;
 }
 
-.informacao-produto button:hover {
+.produto-detalhe .info button:hover {
   background-color: #457aa0;
 }
 
 /* descrição abaixo de tudo */
 .produto-detalhe dl {
   background-color: #f8f8f8;
-  border-top: 1px solid #ddd;
   padding: 1.5rem;
   color: #333;
   width: 100%;
@@ -437,7 +462,7 @@ vai ficar uma div dentro de outra
 
 @media (max-width: 768px) {
 
-  /* a imagem e o conteudo ficam todos na vertical */
+  /* A imagem e o conteudo ficam todos na vertical */
   .produto-detalhe figure {
     flex-direction: column;
     align-items: center;
@@ -449,24 +474,15 @@ vai ficar uma div dentro de outra
     height: auto;
   }
 
-  .produto-detalhe .produto-detalhe-conteudo {
+  .produto-detalhe .info {
     align-items: center;
     width: 100%;
   }
 
-
-
 }
+
 
 /* parte das categorias */
-main {
-  display: flex;
-  gap: 2rem;
-  padding: 2rem 4rem;
-  background-color: #fff;
-  align-items: flex-start;
-  /*justify-content: center; ajusar o fieldset de feedback*/
-}
 
 h2 {
   font-size: 1.8rem;
@@ -479,9 +495,8 @@ h2 {
 
 /* parte do aside presente em categorias */
 aside {
-  width: 220px;
+  min-width: 200px;
   border-right: 1px solid #ddd;
-  padding-right: 1.5rem;
 }
 
 aside h4 {
@@ -512,23 +527,24 @@ aside a {
 aside a:hover {
   color: #457aa0;
   text-decoration: underline;
-}  
+}
 
 @media (max-width: 768px) {
 
-  main{
+  main {
     flex-direction: column;
   }
 
-  main aside{
+  main aside {
     width: 100%;
     height: auto;
   }
 }
 
-/* formulario para contato */
+/* PAGINA DE CONTATO */
 
-main.contato {  /* tive que criar uma classe pq tava dando conflito com a main usada em outros htmls */
+main.contato {
+  /* tive que criar uma classe pq tava dando conflito com a main usada em outros htmls */
   display: flex;
   justify-content: center;
 }
@@ -538,8 +554,6 @@ form {
   gap: 1.2rem;
   justify-content: center;
 }
-
-
 
 fieldset {
   border: 2px solid #3179b1;
@@ -562,8 +576,8 @@ label {
   margin-bottom: 0.3rem;
 }
 
-
-input[type="text"],   /* usando os seletores de atributo*/
+input[type="text"],
+/* usando os seletores de atributo*/
 input[type="email"],
 select,
 textarea {
@@ -577,7 +591,7 @@ textarea {
   background-color: #fff;
 }
 
-input[type="tel"]{
+input[type="tel"] {
   width: 60%;
   height: auto;
   padding: 0.8rem;
@@ -630,38 +644,79 @@ input[type="reset"]:hover {
   transform: scale(1.03);
 }
 
-/* ===== SISTEMA DE GRID 12 COLUNAS ===== */
+/* uso de grid na pagina de contato */
 
 .row {
   display: grid;
-  grid-template-columns: repeat(12, 1fr); /* 12 colunas iguais */
-  gap: 1rem; /* espaçamento entre colunas */
+  grid-template-columns: repeat(12, 1fr);
+  /* 12 colunas iguais */
+  gap: 1rem;
   margin-bottom: 1.5rem;
 }
 
-/* Classes de colunas fixas para desktop */
-.col-1 { grid-column: span 1; }
-.col-2 { grid-column: span 2; }
-.col-3 { grid-column: span 3; }
-.col-4 { grid-column: span 4; }
-.col-5 { grid-column: span 5; }
-.col-6 { grid-column: span 6; }
-.col-7 { grid-column: span 7; }
-.col-8 { grid-column: span 8; }
-.col-9 { grid-column: span 9; }
-.col-10 { grid-column: span 10; }
-.col-11 { grid-column: span 11; }
-.col-12 { grid-column: span 12; }
+/* classes de colunas fixas  */
+.col-1 {
+  grid-column: span 1;
+}
+
+.col-2 {
+  grid-column: span 2;
+}
+
+.col-3 {
+  grid-column: span 3;
+}
+
+.col-4 {
+  grid-column: span 4;
+}
+
+.col-5 {
+  grid-column: span 5;
+}
+
+.col-6 {
+  grid-column: span 6;
+}
+
+.col-7 {
+  grid-column: span 7;
+}
+
+.col-8 {
+  grid-column: span 8;
+}
+
+.col-9 {
+  grid-column: span 9;
+}
+
+.col-10 {
+  grid-column: span 10;
+}
+
+.col-11 {
+  grid-column: span 11;
+}
+
+.col-12 {
+  grid-column: span 12;
+}
 
 /* Para telas menores que 768px */
 @media (max-width: 768px) {
-  .col-md-12 { grid-column: span 12; }
-  .col-md-6 { grid-column: span 6; }
+  .col-md-12 {
+    grid-column: span 12;
+  }
+
+  .col-md-6 {
+    grid-column: span 6;
+  }
 }
 
+@media (max-width: 1200px) {
 
-
-@media (max-width: 1200px) { /* Tentei ajustar para que os botões ficassem de maneira OK*/
+  /* Tentei ajustar para que os botões ficassem de maneira OK*/
   input[type="submit"],
   input[type="reset"] {
     width: 100%;
@@ -675,4 +730,3 @@ footer {
   text-align: center;
   background: #ddd;
 }
-
