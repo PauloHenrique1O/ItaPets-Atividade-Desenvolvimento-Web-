@@ -545,12 +545,12 @@ aside a:hover {
 
 main.contato {
   /* tive que criar uma classe pq tava dando conflito com a main usada em outros htmls */
-  display: flex;
+  display: grid !important;
   justify-content: center;
 }
 
 form {
-  display: flex;
+  display: grid;
   gap: 1.2rem;
   justify-content: center;
 }
@@ -570,7 +570,7 @@ legend {
 }
 
 label {
-  display: flex;
+  display: grid;
   font-weight: 600;
   color: rgb(0, 0, 0);
   margin-bottom: 0.3rem;
