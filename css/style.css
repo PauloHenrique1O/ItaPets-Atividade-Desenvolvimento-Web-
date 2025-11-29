@@ -1,7 +1,7 @@
 /* FONTES E RESET GLOBAL */
 @font-face {
   font-family: "Notable";
-  src: url("/font/Notable-Regular.ttf") format("truetype");
+  src: url("font/Notable-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
@@ -10,6 +10,58 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+
+
+
+
+
+/* ...existing code... */
+
+/* ESTILOS PARA VALIDAÇÃO E NOTIFICAÇÕES */
+
+/* Campo inválido */
+input.invalid,
+select.invalid,
+textarea.invalid {
+  border-color: #d32f2f !important;
+  background-color: #ffebee;
+  box-shadow: 0 0 6px rgba(211, 47, 47, 0.3);
+}
+
+/* Toast (notificação simples) */
+.simple-toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #3179b1;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 300ms ease, transform 300ms ease;
+  pointer-events: none;
+}
+
+.simple-toast.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Para telas pequenas */
+@media (max-width: 480px) {
+  .simple-toast {
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+  }
 }
 
 /* HEADER */
@@ -592,7 +644,7 @@ textarea {
 }
 
 input[type="tel"] {
-  width: 60%;
+  width: 75%;
   height: auto;
   padding: 0.8rem;
   font-size: 1rem;
