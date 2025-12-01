@@ -7,6 +7,10 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <title>ItaPets Moletom Cansei de Ser Gato Cinza e Rosa</title>
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <!-- Formatar o modal com o css do bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -54,16 +58,30 @@
   <main>
     <article class="produto-detalhe">
       <figure>
-        <img src="img/Moletom_cansei_de_ser_gato_cinza_e_rosa_width_500.webp"
+        <img class="fade-img" src="img/Moletom_cansei_de_ser_gato_cinza_e_rosa_width_500.webp"
           alt="Moletom Cansei de Ser Gato Cinza e Rosa">
       </figure>
       <div class="info">
         <h3>Moletom Gato Cinza e Rosa</h3>
         <p>Moletom Cansei de Ser Gato Cinza e Rosa</p>
         <a href="#D12"> Ver descrição completa</a>
-        <p class="preco"><strong>Preço:</strong> R$ 81,99</p>
-        <button>Comprar agora</button>
-        <button>Adicionar ao carrinho</button>
+        <p class="preco-unitario"><strong>Preço Unitário:</strong> <span id="precoUnitarioDisplay">R$ 81,99</span></p>
+        <p class="precoBase" id="preco">R$ 81,99</p> <!--Colocado so para conseguir fazer os calculos-->
+        <div class="quantity-controls">
+          <label for="quantidade">Quantidade:</label>
+          <div class="input-group">
+            <button class="btn-quantity" id="btnDiminuir" type="button">-</button>
+            <input type="number" id="quantidade" value="1" min="1" readonly>
+            <button class="btn-quantity" id="btnAumentar" type="button">+</button>
+          </div>
+        </div>
+
+        <p class="preco-total">
+          <strong>Total:</strong> <span id="precoTotalDisplay">R$ 81,99</span>
+        </p>
+
+        <button id="btnComprar">Comprar agora</button>
+        <button id="btnAdicionar">Adicionar ao carrinho</button>
       </div>
       <dl id="D12">
         <dt><strong>Descrição do Produto:</strong></dt>
@@ -81,6 +99,12 @@
     <h3>Fale Conosco</h3>
     <a href="index.html">Início</a> · <a href="contato.html">Contato</a>
   </footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Aqui é para carregar o javaScript do bootstrap(funcionalidade dos componentes) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>

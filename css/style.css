@@ -1,7 +1,7 @@
 /* FONTES E RESET GLOBAL */
 @font-face {
   font-family: "Notable";
-  src: url("font/Notable-Regular.ttf") format("truetype");
+  src: url("../font/Notable-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
@@ -12,9 +12,57 @@
   box-sizing: border-box;
 }
 
+/* Estilos para o Controles de Quantidade */
+.quantity-controls {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
+.quantity-controls label {
+    font-weight: bold;
+    color: #333;
+}
 
+.quantity-controls .input-group {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden; /* Garante que o input e botões fiquem alinhados */
+}
 
+.quantity-controls .btn-quantity {
+    background-color: #f8f8f8;
+    color: #333;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.quantity-controls .btn-quantity:hover {
+    background-color: #eee;
+}
+
+.quantity-controls input {
+    width: 50px; /* Largura do campo de quantidade */
+    text-align: center;
+    border: none;
+    padding: 8px 0;
+    font-size: 16px;
+    background-color: white;
+}
+
+.preco-unitario, .preco-total {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.precoBase{
+  display: none;
+}
 
 
 /* ...existing code... */
@@ -230,7 +278,7 @@ nav ul ul {
 .dropdown:hover>a.dog {
   /*Usa-se o '>' pra pegar o filho direto do dropdown, ou seja, o link(.dog) que é filho direto de dropdown.*/
   /*Se n usar, a aplicação do estilo seria a qualquer link .dog  dentro do submenu (por exemplo dentro de .dropdown-content).*/
-  background-image: url("/img/dog_icon_navbar.webp");
+  background-image: url("../img/dog_icon_navbar.webp");
   background-repeat: no-repeat;
   background-position: center left;
   background-size: 30px;
@@ -240,7 +288,7 @@ nav ul ul {
 }
 
 .dropdown:hover>a.cat {
-  background-image: url("/img/cat_icon_navbar.webp");
+  background-image: url("../img/cat_icon_navbar.webp");
   background-repeat: no-repeat;
   background-position: center left;
   background-size: 30px;
@@ -250,7 +298,7 @@ nav ul ul {
 }
 
 .dropdown:hover>a.bird {
-  background-image: url("/img/bird_icon_navbar.webp");
+  background-image: url("../img/bird_icon_navbar.webp");
   background-repeat: no-repeat;
   background-position: center left;
   background-size: 30px;
