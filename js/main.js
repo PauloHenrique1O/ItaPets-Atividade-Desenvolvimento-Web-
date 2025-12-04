@@ -1,14 +1,12 @@
 
 // =========================================================
-// 1. CÓDIGO JQUERY (DEVE ESTAR FORA DO DOMContentLoaded)
-// O bloco $(function() { ... }) é um atalho para $(document).ready()
-// E garante que todo o código jQuery rode após o DOM estar pronto.
+// 1. CÓDIGO JQUERY
+// O bloco $(function() { ... }) é usado para garantir que o código
+// só rode após o carregamento completo do DOM.
 // =========================================================
 $(function () {
   // ---------------------------
-  // 1.1. ANIMAÇÃO FADE-IN (jQuery)
-  // ---------------------------
-  // Seu código original do fade-in
+  // 1.1. animação carregamento da imagem usando jQuery
   $(".fade-img").css("opacity", 0);
 
   $(".fade-img").each(function () {
@@ -16,36 +14,33 @@ $(function () {
       $(this).animate({ opacity: 1 }, 800);
     });
 
-    // Caso a imagem já tenha carregado rápido (cache)
+    //caso a imagem já tenha carregado rápido, vai disparar o load manualmente
     if (this.complete) {
       $(this).trigger("load");
     }
   });
 
   // ---------------------------
-  // 1.2. SMOOTH SCROLL (jQuery)
-  // ---------------------------
-  // Seu código original do smooth scroll
+  // 1.2.scroll suave, quando clicar em 'ver descrição completa', usando jQuery
   $('a[href^="#"]').on('click', function (e) {
     e.preventDefault();
     const alvo = $($(this).attr('href'));
 
     if (alvo.length) {
       $('html, body').animate({
-        // Adicione o scroll offset aqui se necessário, ex:
         scrollTop: alvo.offset().top
       }, 600);
     }
   });
 
   // =========================================================
-// 1.3. MODAL DE AVISO (Bootstrap/jQuery) - AGORA COM VERIFICAÇÃO DE ESCOPO
+// 1.3. modal de aviso quando comprar ou adicionar produto, usando Bootstrap e jQuery
 // =========================================================
 
-// Verifica se existe o botão de Adicionar ou Comprar na página atual
+// vai verificar se existe o botão de Adicionar ou Comprar na página atual -> criei para excluir das paginas que nao forem dos produtos
 if ($('#btnAdicionar').length > 0 || $('#btnComprar').length > 0) {
     
-    // Se os botões existirem (ou seja, estamos em uma página de produto),
+    //se os botões existirem (ou seja, estamos em uma página de produto),
     // o código abaixo será executado.
     
     const modalHTML = `
@@ -67,10 +62,7 @@ if ($('#btnAdicionar').length > 0 || $('#btnComprar').length > 0) {
         </div>
     `;
 
-    // 1. Adiciona o HTML do modal ao final do body do documento
     $('body').append(modalHTML);
-
-    // 2. Adiciona o listener de clique
     $("#btnAdicionar, #btnComprar").on("click", function (e) {
         e.preventDefault();
 
@@ -83,109 +75,89 @@ if ($('#btnAdicionar').length > 0 || $('#btnComprar').length > 0) {
         $("#cartAlertModal").modal('show');
     });
 }
-// Fim do bloco if que garante que o código só roda nas páginas de produto.
 
 // ---------------------------
-    // 1.4. FUNCIONALIDADE DE QUANTIDADE E PREÇO
+    // 1.4.funcionalidade quantidade e preço total na pagina do produto
     // ---------------------------
-    const BASE_PRICE = parseFloat($('#preco').text().replace('R$ ', '').replace(',', '.')); // O preço base (convertido para número)
+    const BASE_PRICE = parseFloat($('#preco').text().replace('R$ ', '').replace(',', '.')); //converto o preço string para numero
 
     const $quantidadeInput = $('#quantidade');
     const $precoTotalDisplay = $('#precoTotalDisplay');
     const $btnAumentar = $('#btnAumentar');
     const $btnDiminuir = $('#btnDiminuir');
 
-    // Função para formatar o valor como moeda brasileira
+
     function formatarMoeda(valor) {
-        // Garante duas casas decimais e substitui ponto por vírgula
         return `R$ ${valor.toFixed(2).replace('.', ',')}`;
     }
 
-    // Função principal para calcular e atualizar o preço total
     function updatePrice() {
         let quantidade = parseInt($quantidadeInput.val());
-        
-        // Garante que a quantidade mínima seja 1
         if (isNaN(quantidade) || quantidade < 1) {
             quantidade = 1;
             $quantidadeInput.val(1);
         }
-        
         const novoTotal = quantidade * BASE_PRICE;
         $precoTotalDisplay.text(formatarMoeda(novoTotal));
     }
 
-    // 2. Eventos de Clique nos Botões de Quantidade
-
-    // Evento de Aumentar Quantidade (+)
+    // eventos de clique nos botoes de quantidade(+ e -)
     $btnAumentar.on('click', function() {
         let quantidadeAtual = parseInt($quantidadeInput.val());
         $quantidadeInput.val(quantidadeAtual + 1);
-        updatePrice(); // Recalcula o preço após a mudança
+        updatePrice(); 
     });
 
-    // Evento de Diminuir Quantidade (-)
     $btnDiminuir.on('click', function() {
         let quantidadeAtual = parseInt($quantidadeInput.val());
-        // Só diminui se for maior que 1
         if (quantidadeAtual > 1) {
             $quantidadeInput.val(quantidadeAtual - 1);
-            updatePrice(); // Recalcula o preço após a mudança
+            updatePrice();
         }
     });
-
-    // 3. Inicializa o preço total ao carregar a página
     updatePrice();
 
     // =========================================================
-// 1.5. FILTRO AO VIVO (LIVE SEARCH)
+// 1.5.filtro de busca enquanto digita
 // =========================================================
 
 const $searchInput = $('#txtbusca');
-const $productArticles = $('.lista-produtos article'); // Alvo: todos os artigos dentro do contêiner
+const $productArticles = $('.lista-produtos article'); // todos os produtos dentro da div com a classe lista-produtos 
 
 $searchInput.on('keyup', function() {
-    // 1. Obtém o termo de busca e o normaliza
+    // pego o termo de busca e o normaliza
     const searchTerm = $(this).val().toLowerCase().trim();
 
-    // 2. Itera sobre cada produto
     $productArticles.each(function() {
         const $product = $(this);
-        // Captura o texto que deve ser pesquisado (título + descrição)
-        // O h3 e o p dentro do div.info são os alvos
+        //o h3 e o p dentro do div.info são os alvos
         const productText = $product.find('.info h3').text().toLowerCase() + ' ' + 
                             $product.find('.info p').text().toLowerCase();
 
-        // 3. Verifica se o termo de busca está contido no texto do produto
         if (productText.includes(searchTerm)) {
-            // Se o produto corresponder, garante que ele está visível
-            if (!$product.is(':visible')) {
-                $product.slideDown(200); // Efeito suave para mostrar
+            if (!$product.is(':visible')) { 
+                $product.slideDown(200); 
             }
         } else {
-            // Se o produto NÃO corresponder, garante que ele está escondido
             if ($product.is(':visible')) {
-                $product.slideUp(200); // Efeito suave para esconder
+                $product.slideUp(200); 
             }
         }
     });
-
-    // Se o campo estiver vazio, mostra todos os produtos imediatamente
+    //se o campo estiver vazio vai mostra todos os produtos
     if (searchTerm === '') {
         $productArticles.slideDown(200);
     }
 });
 
 
-
 });
 
 
 // =========================================================
-// 2. CÓDIGO VANILLA JS (FUNÇÕES DE CONTATO)
-// Este bloco deve conter toda a lógica que não depende de jQuery.
+// 2.codigo javaScript puro para o formulario de contato
 // =========================================================
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => { //garanti que so vai rodar quando o DOM estiver carregado, é difetente do jQuery, por isso foi separado
 
   const form = document.querySelector('main.contato form');
   if (!form) return;
@@ -200,24 +172,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnSubmit = form.querySelector('input[type="submit"]');
   const btnReset = form.querySelector('input[type="reset"]');
 
-  // ---------------------------
-  // Ajuste de pattern do telefone
-  // ---------------------------
+
+  // ajuste de pattern do telefone
   if (fldTel) {
-    // aceita 11 dígitos puros OU máscara como "(11) 99999-9999"
     fldTel.setAttribute('pattern', '^\\(?\\d{2}\\)?\\s?\\d{4,5}-?\\d{4}$');
     fldTel.setAttribute('title', 'Digite DDD + número (11 dígitos) ou no formato (11) 99999-9999');
   }
-
-  // ---------------------------
-  //  CONFIGURAÇÕES
-  // ---------------------------
   const DRAFT_KEY = 'itapets_contact_draft_v1';
   const MAX_MESSAGE = parseInt(fldMessage.getAttribute('maxlength') || '1000', 10);
 
-  // ---------------------------
-  //  CRIAR CONTADOR DE CARACTERES
-  // ---------------------------
+//contador de caracteres
   let counter = document.createElement('small');
   counter.id = 'messageCount';
   counter.style.display = 'block';
@@ -227,9 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   fldMessage.insertAdjacentElement('afterend', counter);
 
-  // ---------------------------
-  // TOAST SIMPLES
-  // ---------------------------
+//aplicacao de um toast simples(notificação)
   function toast(msg, ms = 1600) {
     const el = document.createElement('div');
     el.className = 'simple-toast';
@@ -243,12 +205,9 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => el.remove(), ms);
   }
 
-  // apenas dígitos
   const onlyDigits = s => (s || '').replace(/\D/g, '');
 
-  // ---------------------------
-  // RESTAURAR RASCUNHO
-  // ---------------------------
+//restaurar o rascunho salvo
   (function restore() {
     try {
       const raw = localStorage.getItem(DRAFT_KEY);
@@ -265,13 +224,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       updateMessageCount();
     } catch (e) {
-      // ignora erro
     }
   })();
 
-  // ---------------------------
-  // SALVAR RASCUNHO (debounce)
-  // ---------------------------
+//salvar o rascunho automaticamente usando localStorage
   let saveTimer = null;
 
   function saveDraft() {
@@ -291,9 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 300);
   }
 
-  // ---------------------------
-  // MÁSCARA DE TELEFONE (BR)
-  // ---------------------------
+//usando uma mascara para o telefone
   function maskPhone(e) {
     const el = e.target;
     let v = onlyDigits(el.value).slice(0, 11);
@@ -309,28 +263,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ---------------------------
-  // CONTADOR DE CARACTERES
-  // ---------------------------
+  //contadoir de caracteres da mensagem
   function updateMessageCount() {
     counter.textContent = `${fldMessage.value.length} / ${MAX_MESSAGE}`;
   }
 
-  // ---------------------------
-  // MARCAR CAMPO INVÁLIDO
-  // ---------------------------
+  //marcacao de campo invalido
   function setInvalid(el, flag = true) {
     if (!el) return;
     if (flag) el.classList.add('invalid');
     else el.classList.remove('invalid');
   }
 
-  // ---------------------------
-  // VALIDAÇÃO CUSTOMIZADA
-  // ---------------------------
+//validacao completa do formulario
   function validate() {
 
-    // limpa classes inválidas
     [fldName, fldEmail, fldTel, fldMessage, fldAssunto, fldMotivo]
       .forEach(i => i && setInvalid(i, false));
 
@@ -346,7 +293,6 @@ document.addEventListener('DOMContentLoaded', () => {
       ok = false;
     }
 
-    // telefone deve ter 11 dígitos
     if (onlyDigits(fldTel.value).length !== 11) {
       setInvalid(fldTel);
       ok = false;
@@ -370,9 +316,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return ok;
   }
 
-  // ---------------------------
-  // LISTENERS (input)
-  // ---------------------------
   [fldName, fldEmail, fldTel, fldAssunto, fldMotivo, fldMessage].forEach(inp => {
     if (!inp) return;
 
@@ -386,9 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ---------------------------
-  // SUBMIT
-  // ---------------------------
+
   form.addEventListener('submit', (ev) => {
     ev.preventDefault();
 
@@ -416,9 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1200);
   });
 
-  // ---------------------------
-  // RESET: limpa rascunho
-  // ---------------------------
+
   if (btnReset) {
     btnReset.addEventListener('click', () => {
       localStorage.removeItem(DRAFT_KEY);
@@ -426,4 +365,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-}); // Fim do DOMContentLoaded
+}); 
